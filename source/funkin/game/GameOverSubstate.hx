@@ -87,11 +87,9 @@ class GameOverSubstate extends MusicBeatSubstate
 		lossSFX = FlxG.sound.play(Paths.sound(lossSFXName));
 		Conductor.changeBPM(gameOverSongBPM);
 
-		DiscordUtil.call("onGameOver", []);
-		gameoverScript.call("postCreate");
+		DiscordUtil.changePresence('Game Over', PlayState.SONG.meta.displayName + " (" + PlayState.difficulty + ")");
 
-		addVirtualPad('NONE', 'A_B');
-		addVirtualPadCamera(false);
+		gameoverScript.call("postCreate");
 	}
 
 	override function update(elapsed:Float)
@@ -111,7 +109,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (controls.BACK)
 		{
 			if (PlayState.chartingMode && Charter.undos.unsaved)
-				game.saveWarn(false);
+				PlayState.instance.saveWarn(false);
 			else {
 				PlayState.resetSongInfos();
 				if (Charter.instance != null) Charter.instance.__clearStatics();

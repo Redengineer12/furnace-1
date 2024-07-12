@@ -211,13 +211,9 @@ class PlayState extends MusicBeatState
 	 */
 	public var canAccessDebugMenus:Bool = true;
 	/**
-	 * Whether or not to show the secret gitaroo pause.
+	 * Wether or not to show the secret gitaroo pause.
 	 */
 	public var allowGitaroo:Bool = true;
-	/**
-	 * Whether or not to bop the icons on beat.
-	 */
-	public var doIconBop:Bool = true;
 
 	/**
 	 * Whenever cam zooming is enabled, enables on a note hit if not cancelled.
@@ -295,9 +291,10 @@ class PlayState extends MusicBeatState
 	 */
 	public var iconP2:HealthIcon;
 	/**
-	 * Camera for the HUD (notes, misses).
+	 * Camera for the HUD (health, misses).
 	 */
 	public var camHUD:HudCamera;
+	
 	/**
 	 * Camera for the game (stages, characters)
 	 */
@@ -359,19 +356,11 @@ class PlayState extends MusicBeatState
 	 * Camera zoom at which the game lerps to.
 	 */
 	public var defaultCamZoom:Float = 1.05;
-	/**
-	 * Speed at which the game camera zoom lerps to.
-	 */
-	public var camGameZoomLerp:Float = 0.05;
-	
+
 	/**
 	 * Camera zoom at which the hud lerps to.
 	 */
 	public var defaultHudZoom:Float = 1.0;
-	/**
-	 * Speed at which the hud camera zoom lerps to.
-	 */
-	public var camHUDZoomLerp:Float = 0.05;
 
 	/**
 	 * Zoom for the pixel assets.
@@ -528,7 +517,6 @@ class PlayState extends MusicBeatState
 
 	@:dox(hide) override public function create()
 	{
-		#if mobile lime.system.System.allowScreenTimeout = false; #end
 		Note.__customNoteTypeExists = [];
 		// SCRIPTING & DATA INITIALIZATION
 		#if REGION
@@ -540,6 +528,7 @@ class PlayState extends MusicBeatState
 		(scripts = new ScriptPack("PlayState")).setParent(this);
 
 		camGame = camera;
+		
 		FlxG.cameras.add(camHUD = new HudCamera(), false);
 		camHUD.bgColor.alpha = 0;
 
@@ -662,7 +651,7 @@ class PlayState extends MusicBeatState
 			var strLine = new StrumLine(chars,
 				startingPos,
 				strumLine.strumScale == null ? 1 : strumLine.strumScale,
-				strumLine.type == 2 || (!coopMode && !((strumLine.type == 1 && !opponentMode) || (strumLine.type == 0 && opponentMode))),
+				strumLine.type == 2 || (!coopMode && !((strumLine.type == 1 && !opponentMode) || (strumLine.type == 0 && opponentMode))), 
 				strumLine.type != 1, coopMode ? (strumLine.type == 1 ? controlsP1 : controlsP2) : controls,
 				strumLine.vocalsSuffix
 			);
@@ -716,6 +705,8 @@ class PlayState extends MusicBeatState
 		healthBarBG.scrollFactor.set();
 		add(healthBarBG);
 
+	
+
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, maxHealth);
 		healthBar.scrollFactor.set();
@@ -752,12 +743,6 @@ class PlayState extends MusicBeatState
 		#end
 
 		startingSong = true;
-		addMobileControls();
-		mobileControls.visible = true;
-		#if !android
-		addVirtualPad('NONE', 'P');
-		addVirtualPadCamera(false);
-		#end
 
 		super.create();
 
@@ -770,15 +755,15 @@ class PlayState extends MusicBeatState
 				FlxG.sound.load(Paths.sound(s));
 
 		if (chartingMode) {
+			WindowUtils.endfix = " (Chart Playtesting)";
 			WindowUtils.prefix = Charter.undos.unsaved ? "* " : "";
-			WindowUtils.suffix = " (Chart Playtesting)";
 
 			SaveWarning.showWarning = Charter.undos.unsaved;
 			SaveWarning.selectionClass = CharterSelection;
 			SaveWarning.warningFunc = saveWarn;
 			SaveWarning.saveFunc = () ->  {
-				@:privateAccess Chart.save('${Paths.getAssetsRoot()}/songs/${Charter.__song.toLowerCase()}',
-					PlayState.SONG, Charter.__diff.toLowerCase(), {saveMetaInChart: false, prettyPrint: Options.editorPrettyPrint});
+				@:privateAccess Chart.save('${Paths.getAssetsRoot()}/songs/${Charter.__song.toLowerCase()}', 
+					PlayState.SONG, Charter.__diff.toLowerCase(), {saveMetaInChart: false, saveEventsInChart: true});
 			}
 		}
 	}
@@ -803,7 +788,7 @@ class PlayState extends MusicBeatState
 	 * This function is dynamic, which means you can do `updateDiscordPresence = function() {}` in scripts.
 	 */
 	public dynamic function updateDiscordPresence()
-		DiscordUtil.call("onPlayStateUpdate", []);
+		DiscordUtil.changeSongPresence(detailsText, (paused ? "Paused - " : "") + SONG.meta.displayName + " (" + difficulty + ")", inst, getIconRPC());
 
 	/**
 	 * Starts a cutscene.
@@ -957,7 +942,6 @@ class PlayState extends MusicBeatState
 
 	public override function destroy() {
 		scripts.call("destroy");
-		#if mobile lime.system.System.allowScreenTimeout = Options.screenTimeOut; #end
 		for(g in __cachedGraphics)
 			g.useCount--;
 		@:privateAccess
@@ -970,7 +954,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.destroySound(vocals);
 		}
 
-		WindowUtils.resetAffixes();
+		WindowUtils.resetTitle();
 		SaveWarning.reset();
 
 		instance = null;
@@ -1033,8 +1017,6 @@ class PlayState extends MusicBeatState
 	{
 		var event = scripts.event("onSubstateOpen", EventManager.get(StateEvent).recycle(SubState));
 
-		#if mobile lime.system.System.allowScreenTimeout = Options.screenTimeOut; #end
-
 		if (!postCreated)
 			MusicBeatState.skipTransIn = true;
 
@@ -1060,7 +1042,6 @@ class PlayState extends MusicBeatState
 	override function closeSubState()
 	{
 		var event = scripts.event("onSubstateClose", EventManager.get(StateEvent).recycle(subState));
-		#if mobile lime.system.System.allowScreenTimeout = false; #end
 		if (event.cancelled) return;
 
 		if (paused)
@@ -1240,7 +1221,7 @@ class PlayState extends MusicBeatState
 
 		updateRatingStuff();
 
-		if (#if android FlxG.android.justReleased.BACK || #else virtualPad.buttonP.justPressed || #end controls.PAUSE && startedCountdown && canPause)
+		if (controls.PAUSE && startedCountdown && canPause)
 			pauseGame();
 
 		if (canAccessDebugMenus) {
@@ -1254,13 +1235,12 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-        if (doIconBop) {
-			iconP1.scale.set(lerp(iconP1.scale.x, 1, 0.33), lerp(iconP1.scale.y, 1, 0.33));
-			iconP2.scale.set(lerp(iconP2.scale.x, 1, 0.33), lerp(iconP2.scale.y, 1, 0.33));
+		iconP1.scale.set(lerp(iconP1.scale.x, 1, 0.33), lerp(iconP1.scale.y, 1, 0.33));
+		iconP2.scale.set(lerp(iconP2.scale.x, 1, 0.33), lerp(iconP2.scale.y, 1, 0.33));
 
-			iconP1.updateHitbox();
-			iconP2.updateHitbox();
-		}
+		iconP1.updateHitbox();
+		iconP2.updateHitbox();
+
 		updateIconPositions();
 
 		if (startingSong)
@@ -1309,8 +1289,9 @@ class PlayState extends MusicBeatState
 
 		if (camZooming)
 		{
-			FlxG.camera.zoom = lerp(FlxG.camera.zoom, defaultCamZoom, camGameZoomLerp);
-			camHUD.zoom = lerp(camHUD.zoom, defaultHudZoom, camHUDZoomLerp);
+			FlxG.camera.zoom = lerp(FlxG.camera.zoom, defaultCamZoom, 0.05);
+			camHUD.zoom = lerp(camHUD.zoom, defaultHudZoom, 0.05);
+
 		}
 
 		// RESET = Quick Game Over Screen
@@ -1443,7 +1424,6 @@ class PlayState extends MusicBeatState
 	 */
 	public function endSong():Void
 	{
-		mobileControls.visible = false;
 		scripts.call("onSongEnd");
 		canPause = false;
 		inst.volume = 0;
@@ -1485,7 +1465,6 @@ class PlayState extends MusicBeatState
 	 * Immediately switches to the next song, or goes back to the Story/Freeplay menu.
 	 */
 	public function nextSong() {
-		mobileControls.visible = false;
 		if (isStoryMode)
 		{
 			campaignScore += songScore;
@@ -1808,16 +1787,15 @@ class PlayState extends MusicBeatState
 		{
 			FlxG.camera.zoom += 0.015 * camZoomingStrength;
 			camHUD.zoom += 0.03 * camZoomingStrength;
+
+
 		}
 
-        if (doIconBop)
-		{
-			iconP1.scale.set(1.2, 1.2);
-			iconP2.scale.set(1.2, 1.2);
+		iconP1.scale.set(1.2, 1.2);
+		iconP2.scale.set(1.2, 1.2);
 
-			iconP1.updateHitbox();
-			iconP2.updateHitbox();
-		}
+		iconP1.updateHitbox();
+		iconP2.updateHitbox();
 
 		scripts.call("beatHit", [curBeat]);
 	}
@@ -1875,10 +1853,10 @@ class PlayState extends MusicBeatState
 	private inline function get_playerStrums():StrumLine
 		return strumLines.members[1];
 	private inline function get_gfSpeed():Int
-		return (strumLines.members[2] != null && strumLines.members[2].characters[0] != null) ? strumLines.members[2].characters[0].beatInterval : 1;
+		return (strumLines.members[2] != null && strumLines.members[2].characters[0] != null) ? strumLines.members[2].characters[0].danceInterval : 1;
 	private inline function set_gfSpeed(v:Int):Int {
 		if (strumLines.members[2] != null && strumLines.members[2].characters[0] != null)
-			strumLines.members[2].characters[0].beatInterval = v;
+			strumLines.members[2].characters[0].danceInterval = v;
 		return v;
 	}
 
