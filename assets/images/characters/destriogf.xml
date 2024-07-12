@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="destriogf.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Idle0000" x="40" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0001" x="578" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0002" x="578" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0003" x="1116" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0004" x="1116" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0005" x="1116" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0006" x="1654" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0007" x="1654" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0008" x="2192" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0009" x="2730" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0010" x="3268" y="40" width="457" height="605"/>
+	<SubTexture name="Idle0011" x="40" y="726" width="457" height="605"/>
+	<SubTexture name="Idle0012" x="578" y="726" width="457" height="604" frameX="0" frameY="0" frameWidth="457" frameHeight="605"/>
+	<SubTexture name="Idle0013" x="578" y="726" width="457" height="604" frameX="0" frameY="0" frameWidth="457" frameHeight="605"/>
+	<SubTexture name="Idle0014" x="578" y="726" width="457" height="604" frameX="0" frameY="0" frameWidth="457" frameHeight="605"/>
+	<SubTexture name="Idle0015" x="1116" y="726" width="457" height="604" frameX="0" frameY="0" frameWidth="457" frameHeight="605"/>
+	<SubTexture name="Idle0016" x="1116" y="726" width="457" height="604" frameX="0" frameY="0" frameWidth="457" frameHeight="605"/>
+	<SubTexture name="Idle0017" x="1654" y="726" width="457" height="602" frameX="0" frameY="0" frameWidth="457" frameHeight="605"/>
+	<SubTexture name="Idle0018" x="2192" y="726" width="457" height="604" frameX="0" frameY="0" frameWidth="457" frameHeight="605"/>
+</TextureAtlas>

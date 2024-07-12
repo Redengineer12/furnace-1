@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Símbolo 10000" x="4" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10001" x="4" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10002" x="4" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10003" x="558" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10004" x="558" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10005" x="558" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10006" x="1112" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10007" x="1112" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10008" x="1112" y="4" width="550" height="439"/>
+	<SubTexture name="Símbolo 10009" x="4" y="447" width="550" height="439"/>
+	<SubTexture name="Símbolo 10010" x="4" y="447" width="550" height="439"/>
+	<SubTexture name="Símbolo 10011" x="4" y="447" width="550" height="439"/>
+</TextureAtlas>

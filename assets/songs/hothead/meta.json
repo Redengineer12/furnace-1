@@ -1,0 +1,11 @@
+{
+	"displayName": "Hothead",
+	"bpm": 180.0,
+	"difficulties": [
+		"normal"
+	],
+	"icon": "furnace",
+	"color": "#941653",
+	"coopAllowed": false,
+	"opponentModeAllowed": false
+}

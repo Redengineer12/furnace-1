@@ -1,0 +1,4 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="destriobf" camx="-600" y="350" isGF="false" scale="1.1" camy="-350" color="#00E8FF" flipX="true" isPlayer="false" hasAnimIcon="true" sprite="bf-skeleton">
+	<anim x="-5" loop="false" y="0" fps="24" anim="BF Skeleton" name="dies"/>
+</character>

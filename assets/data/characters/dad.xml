@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="dad" y="0" isGF="false" isPlayer="false" holdTime="6.1" sprite="reference">
+	<anim x="30" loop="true" y="30" fps="24" anim="furnace" name="normal"/>
+	<anim x="17" loop="true" y="14" fps="24" anim="icon lose" name="lose"/>
+	<anim x="37" loop="false" y="36" fps="24" anim="icon transition" name="transition"/>
+</character>

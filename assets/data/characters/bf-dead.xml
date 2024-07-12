@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="destriobf" camx="-600" y="350" isGF="false" scale="1.1" camy="-350" color="#00E8FF" flipX="true" isPlayer="false" hasAnimIcon="true" sprite="destriobf-death">
+	<anim x="0" loop="false" y="0" fps="24" anim="First Death" name="firstDeath"/>
+	<anim x="-12" loop="true" y="-12" fps="24" anim="Death Loop" name="deathLoop"/>
+	<anim x="-11" loop="false" y="71" fps="24" anim="Death Confirm" name="deathConfirm"/>
+</character>

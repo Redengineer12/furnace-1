@@ -1,0 +1,4 @@
+<!DOCTYPE codename-engine-character>
+<character x="0" icon="furnace" camx="300" y="0" isGF="false" isPlayer="false" hasAnimIcon="true" holdTime="3.4" sprite="breath">
+	<anim x="0" loop="false" y="0" fps="24" anim="breath" name="breath"/>
+</character>

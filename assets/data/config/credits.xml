@@ -1,0 +1,18 @@
+<!DOCTYPE codename-mod-credits>
+<!-- TEMPLATE FOR CUSTOM CREDITS!!! -->
+<menu name="Mod Credits" desc="Modify mod credits here">
+	<!-- \/ You can also set the portrait shader as false as you can see below in the github one -->
+	<credit name="rxdialmusic" desc="smoking weed and filling my gut with diet soda and playing Burnout Revenge for the PS2 " icon="rxdialbeat" size="130" url="https://x.com/rxdialmusic"/>
+	<credit name="Matt$" desc="Fuck Aether for killing this mod originally. Glad it finally has the full release it deserves." icon="Matt" size="130" url="https://www.youtube.com/channel/UCRvaSMje5AjwBl29Hsxnhhg"/>
+	<credit name="Sykley" desc="yes i have game dev experience beforehand how could you tell? ditto with what matt$ said as well i hope aether gets tortured via tar and feather :   )thank you for playing my vidfeo game!" icon="sykley" size="130" url="https://x.com/SykleyShbang"/>
+	<credit name="DestrioSZ" desc="oh si funkg sigue asi ya casi acabo" icon="DestrioSZ" size="130" url="https://x.com/DestrioSZ_"/>
+	<credit name="DJ-EXIT" desc="Hola wacha como andas" icon="DJ-3XIT" size="130" url="https://x.com/springiringingu"/>
+	<credit name="Yesnt" desc="rest in pepperoni" icon="Yesnot" size="130" url="https://gamejolt.com/@yesntbutispapaemeritus"/>
+	<credit name="LeCherlok" desc="Destrio, generame un furnace invaluable" icon="LeCherlok" size="130" url="https://x.com/Cherlok1289751"/>
+	<credit name="EL GAMER POBRE" desc="cumissions open!" icon="El_GAMER_POBRE" size="130" url="https://x.com/EL_GAMER_POBRE"/>
+	<credit name="ReThinkin" desc="Click me to know more about me!" icon="ReThinkin" size="130" url="https://x.com/RE_Thinkin"/>
+	<credit name="BePixel" desc="Click me to know more about me!" icon="BePixel" size="130" url="https://x.com/BepixelOfficial/media"/>
+	<credit name="Aqua" desc="destrio le robo un chart, jaja que loco" icon="Aqua" size="130" url="https://www.youtube.com/@erzindeagua"/>
+	<credit name="Cuminashe" desc="fan numero 1 de furnace" icon="Cuminashe" size="130" url="https://x.com/CumAshe"/>
+	<credit name="Dathree_O" desc="ayudante de destreo" icon="Dathree" size="130" url="https://x.com/Dathree_O"/>
+</menu>

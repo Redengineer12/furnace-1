@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="breath.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="breath0000" x="4" y="4" width="600" height="1130"/>
+	<SubTexture name="breath0001" x="4" y="4" width="600" height="1130"/>
+	<SubTexture name="breath0002" x="608" y="4" width="598" height="1130" frameX="-2" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0003" x="1210" y="4" width="598" height="1130" frameX="-2" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0004" x="1812" y="4" width="596" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0005" x="2412" y="4" width="596" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0006" x="3012" y="4" width="584" height="1130" frameX="-16" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0007" x="3600" y="4" width="584" height="1130" frameX="-16" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0008" x="4188" y="4" width="582" height="1130" frameX="-18" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0009" x="4774" y="4" width="581" height="1130" frameX="-18" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0010" x="5359" y="4" width="576" height="1130" frameX="-23" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0011" x="5939" y="4" width="576" height="1130" frameX="-23" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0012" x="6519" y="4" width="595" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0013" x="7118" y="4" width="594" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0014" x="4" y="1138" width="598" height="1130" frameX="0" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0015" x="606" y="1138" width="598" height="1130" frameX="0" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0016" x="1208" y="1138" width="596" height="1130" frameX="-2" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0017" x="1808" y="1138" width="596" height="1130" frameX="-2" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0018" x="2408" y="1138" width="594" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0019" x="2408" y="1138" width="594" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0020" x="3006" y="1138" width="582" height="1130" frameX="-16" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0021" x="3006" y="1138" width="582" height="1130" frameX="-16" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0022" x="3592" y="1138" width="580" height="1130" frameX="-18" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0023" x="3592" y="1138" width="580" height="1130" frameX="-18" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0024" x="4176" y="1138" width="575" height="1130" frameX="-23" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0025" x="4176" y="1138" width="575" height="1130" frameX="-23" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0026" x="4755" y="1138" width="594" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0027" x="4755" y="1138" width="594" height="1130" frameX="-4" frameY="0" frameWidth="600" frameHeight="1130"/>
+	<SubTexture name="breath0028" x="5353" y="1138" width="598" height="1130" frameX="0" frameY="0" frameWidth="600" frameHeight="1130"/>
+</TextureAtlas>
